@@ -47,11 +47,11 @@ function utilities.sign(x) --faster, caution: doesn't return 0
 end
 
 function utilities.clamp_vector3(vec,minn,maxx)
-	return vector.new(clamp(vec.x,minn,maxx),clamp(vec.y,minn,maxx),clamp(vec.z,minn,maxx))
+	return vector.new(utilities.clamp(vec.x,minn,maxx),utilities.clamp(vec.y,minn,maxx),utilities.clamp(vec.z,minn,maxx))
 end
 
 function utilities.sign_vector3(vec)
-	return vector.new(sign(vec.x),sign(vec.y),sign(vec.z))
+	return vector.new(utilities.sign(vec.x),utilities.sign(vec.y),utilities.sign(vec.z))
 end
 
 function utilities.abs_vector3(vec)
@@ -101,7 +101,7 @@ function utilities.pwm()
 	last_output_float_error=vector.new(0,0,0),
 	run=function(self,rs)
 		pid_out_w_error = rs:add(self.last_output_float_error)
-		output = round_vector3(pid_out_w_error)
+		output = utilities.round_vector3(pid_out_w_error)
 		self.last_output_float_error = pid_out_w_error:sub(output)
 		return output
 	end
@@ -115,10 +115,10 @@ function utilities.IntegerScroller(value,minimum,maximum)
 		maximum = maximum,
 		minimum = minimum,
 		override=function(self,new_value)
-			value = clamp(new_value, minimum, maximum)
+			value = utilities.clamp(new_value, minimum, maximum)
 		end,
 		set=function(self,delta)
-			value = clamp(value+delta, minimum, maximum)
+			value = utilities.clamp(value+delta, minimum, maximum)
 		end,
 		get=function(self)
 			return value
