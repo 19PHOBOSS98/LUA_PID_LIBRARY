@@ -2,7 +2,8 @@
 ## HOW TO USE
 run the `example_use.lua` script
 
-![image](https://github.com/19PHOBOSS98/LUA_PID_LIBRARY/assets/37253663/97a944a4-1fa2-479b-bbac-fe9e7fedff87)
+![Untitled](https://github.com/19PHOBOSS98/LUA_PID_LIBRARY/assets/37253663/afb23ee7-39d3-444a-8c0a-22fb56901d2f)
+
 
 
 ```
